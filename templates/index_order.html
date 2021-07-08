@@ -1,0 +1,201 @@
+{% extends 'base_order.html' %}
+
+{% block title %} The Genuines · Order {% endblock title %}
+
+  <!-- Header intro... -->
+
+  {% block body %}
+  {% load static %}
+  <header>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <div class="container-fluid">
+        <!-- You might want to add an image to serve as logo later... <img src="{% static 'dev/logo.jpg' %}" alt="genuines logo" class="img-fluid img-me"> -->
+        <a class="navbar-brand" href="{% url 'Home' %}"> The Genuines</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+          aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto mb-2 mb-md-0">
+            <li class="nav-item active">
+              <a class="nav-link" aria-current="page" href="{% url 'Home' %}">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'Order' %}">Order</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'Developer' %}" tabindex="-1" aria-disabled="true">Developer's Info</a>
+            </li>
+          </ul>
+          <form class="d-flex">
+            <input class="form-control mr-2" type="search" placeholder="Search our site..." aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Header ends here. -->
+
+  <div class="content">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-5 mr-auto">
+          <h3 class="mb-3 h3-me-left">Let's work together!</h3>
+          <p>
+            <ul class="note">
+              <li>
+                This section of our site enables you, the user, to place your order for one 
+                of our pamphlets. Note that your order is taken in charge by the moment you 
+                have filled the form by the side and submit. We are going to contact you in the 
+                following 24 hours to confirm your order.
+              </li>
+              <li>
+                You won't have to pay anything until you finally get what you had ordered for. 
+                We care about the security and confidence of our customers. And once you're in 
+                touch with your pamphlet, the payment can be made through cash directly or mobile
+                payments (OM - Orange & MoMo - MTN)
+              </li>
+              <li>
+                If you want yourself delivered your order/command, then please, take time to 
+                accurately and correctly fill the "<i>Additional Information</i>" section on the form.
+                Also, placing an order with delivery services will obviously increase the cost, so 
+                prepare for it. The cost of delivery is according to the customer's address and is 
+                decided during order confirmation.
+              </li>
+              <li>
+                <b>Note: </b>After entering your credentials and have pressed "Send Message", a flash message will 
+                pop up to confirm that your order has been sent successfully.
+              </li>
+            </ul>
+          </p>
+          <br>
+          <h3 class="mb-3 h3-me-left">Join Us Directly from...</h3>
+          <p>
+            If you have problems or want to report any bug or misbehaviour, you can join us directly 
+            on our social media. See you soon!
+          </p>
+
+          <div class="social">
+            <!-- Just Icons with colors and links... -->
+            <!-- Facebook -->
+            <a style="color: #fff;" href="https://www.facebook.com/fahjoel.fah/" role="button"><i class="fab fa-facebook-f fa-2x"></i></a>
+
+            <!-- Twitter -->
+            <!-- <a style="color: #fff;" href="#!" role="button"><i class="fab fa-twitter fa-2x"></i></a> -->
+
+            <!-- LinkedIn -->
+            <!-- <a style="color: #fff;" href="https://www.linkedin.com/in/joel-fah-b3555a204" role="button"><i class="fab fa-linkedin fa-2x"></i></a> -->
+
+            <!-- Whatsapp -->
+            <a style="color: #fff;" href="https://wa.me/237656997810" role="button"><i class="fab fa-whatsapp fa-2x"></i></a>
+
+            <!-- Telegram -->
+            <a style="color: #fff;" href="https://t.me/JoelFah" role="button"><i class="fab fa-telegram fa-2x"></i></a>
+
+            <!-- Gmail -->
+            <a style="color: #fff;" href="mailto:joelfah2003@gmail.com" role="button"><i class="fa fa-envelope fa-2x"></i></a>
+
+            <!-- Github -->
+            <!-- <a style="color: #fff;" href="https://github.com/Joel-Fah" role="button"><i class="fab fa-github fa-2x"></i></a> -->
+
+            <!-- Stack Overflow -->
+            <!-- <a style="color: #fff;" href="https://github.com/Joel-Fah" role="button"><i class="fab fa-stack-overflow fa-2x"></i></a> -->
+          </div>
+
+
+        </div>
+
+        <div class="col-md-6">
+          <div class="box">
+            <h3 class="heading">My Order Form</h3>
+            
+              {% for msg in messages %}
+                    <div class="alert alert-{{msg.level_tag}}" role="alert">
+                      {{msg.message}}
+                    </div>
+              {% endfor %}
+            
+            <form class="mb-5" method="POST" action="{% url 'GetOrder' %}" id="contactForm" name="contactForm">
+              {% csrf_token %}
+              <div class="row">
+
+                <div class="col-md-6 form-group">
+                  <label for="name" class="col-form-label">Name</label>
+                  {{modelform.Name}}
+                  <!-- <input type="text" class="form-control" name="name" id="name" placeholder="Your name"> -->
+                </div>
+                <div class="col-md-6 form-group">
+                  <label for="name" class="col-form-label">Phone</label>
+                  {{modelform.Phone}}
+                  <!-- <input type="tel" class="form-control" name="organization" id="organization" placeholder="Your phone number"> -->
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12 form-group">
+                  <label for="email" class="col-form-label">Email</label>
+                  {{modelform.Email}}
+                  <!-- <input type="email" class="form-control" name="email" id="email" placeholder="Your Email address"> -->
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12 form-group">
+                  <label for="message" class="col-form-label">Additional information <i>(Optional)</i> </label>
+                  {{modelform.AdditionalInfo}}
+                  <!-- <textarea class="form-control" name="message" id="message" cols="30" rows="7" placeholder="Provide some extra information if any e.g. Your address (precisely), observations, Do you need delivery?, etc"></textarea> -->
+                </div>
+              </div>
+              <div class="row mb-3">
+                <div class="col-md-6 form-group">
+                  <label for="budget" class="col-form-label">Product</label>
+                  {{modelform.Product}}
+                  <!-- <select class="custom-select" id="budget" name="budget">
+                    <option selected>Select from list...</option>
+                    <option value="Computer Science 1 & 2 - Advanced Level">Computer Science 1 & 2 - Advanced Level</option>
+                    <option value="Computer Science 3 - Advanced Level">Computer Science 3 - Advanced Level</option>
+                    <option value="Computer Science 1 & 2 - Ordinary Level">Computer Science 1 & 2 - Ordinary Level</option>
+                    <option value="Computer Science 3 - Ordinary Level">Computer Science 3 - Ordinary Level</option>
+                  </select> -->
+                </div>
+                <div class="col-md-6 form-group">
+                  <label for="message" class="col-form-label">Amount</label>
+                  {{modelform.Amount}}
+                  <!-- <input type="number" class="form-control" name="date" id="date" placeholder="Number of copies"> -->
+
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12">
+                  <input type="submit" value="Send Message" class="btn btn-block btn-secondary rounded-0 py-2 px-4">
+                  <span class="submitting"></span>
+                </div>
+              </div>
+            </form>
+            
+
+            <div id="form-message-warning mt-4"></div> 
+            <div id="form-message-success">
+              Your message was sent, thank you!
+            </div>
+            <!-- {{modelform.as_p}} -->
+          </div>
+          <h3 class="mb-3 h3-me-both">THANKS FOR TRUSTING US!</h3>
+        </div>
+      </div>
+  </div>
+
+  
+
+    <script src="{% static 'contact-form-14/js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'contact-form-14/js/popper.min.js' %}"></script>
+    <script src="{% static 'contact-form-14/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'contact-form-14/js/js/jquery.validate.min.js' %}"></script>
+    <script src="{% static 'contact-form-14/js/main.js' %}"></script>
+
+  </body>
+  
+  {% endblock body %}

@@ -1,0 +1,383 @@
+{% extends 'base_blog.html' %}
+
+
+{% block title %} The Genuines · Home {% endblock title %}
+  
+
+{% block body %}
+
+<body>
+  {% load static %}
+  <header>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top">
+      <div class="container-fluid">
+        <!-- You might want to add an image to serve as logo later... <img src="{% static 'dev/logo.jpg' %}" alt="genuines logo" class="img-fluid img-me"> -->
+        <a class="navbar-brand" href="{% url 'Home' %}"> The Genuines</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+          aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto mb-2 mb-md-0">
+            <li class="nav-item active">
+              <a class="nav-link" aria-current="page" href="{% url 'Home' %}">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'Order' %}">Order</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'Developer' %}" tabindex="-1" aria-disabled="true">Developer's Info</a>
+            </li>
+          </ul>
+          <form class="d-flex">
+            <input class="form-control mr-2" type="search" placeholder="Search our site..." aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
+            preserveAspectRatio="xMidYMid slice" role="img" focusable="false">
+            <rect width="100%" height="100%" fill="#777" />
+          </svg>
+
+          <div class="container">
+            <div class="carousel-caption text-left">
+              <h1>Welcome To THE GENUINES corp.</h1>
+              <p>
+                Get in touch with the Genuines Corp to get in possession
+                of a copy of their products. In the sections below,
+                you can see a preview of how the books look like. Be sure, you won't be deceived!
+                These books have been brought by highly skilled Computer Engineering students
+                who awesomely passed the 795 Computer Science course with wonderful grades. So, these
+                pamphlets are going to do the same for you too.
+              </p>
+              <p><a class="btn btn-lg btn-primary" href="#" role="button">Take A Tour</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
+            preserveAspectRatio="xMidYMid slice" role="img" focusable="false">
+            <rect width="100%" height="100%" fill="#777" />
+          </svg>
+
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Place Your Order</h1>
+              <p>
+                Of course, it is also possible to place your order directly from The Genuines' site.
+                You will only need to fill a form, providing some necessary information and our team
+                is going to evaluate your order in the following 24 hours. <br>
+                We are delight that you trust us and in return, we have the obligation to have
+                yourself satisfied. - Thanks and see you soon.
+              </p>
+              <p><a class="btn btn-lg btn-primary" href="{% url 'Order' %}" role="button">Order Now!</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
+            preserveAspectRatio="xMidYMid slice" role="img" focusable="false">
+            <rect width="100%" height="100%" fill="#777" />
+          </svg>
+
+          <div class="container">
+            <div class="carousel-caption text-right">
+              <h1>Vision & Ambitions</h1>
+              <p>
+                The Genuines' core team members intend, in the upcoming future, to expand the areas of
+                interest. Today it's only about 795 Computer Science Advanced Level but very soon, be sure,
+                it'll be about Information and Communication Technology A/L and also Computer Science for
+                Ordinary Level.
+              </p>
+              <p><a class="btn btn-lg btn-primary" href="#" role="button">Become A Facilitator</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+
+
+    <!-- Marketing messaging and featurettes
+   ================================================== -->
+    <!-- Wrap the rest of the page in another container to center all the content. -->
+
+    <div class="container marketing">
+
+      <!-- Three columns of text below the carousel -->
+      <h1 class="h1-me-right">The Genuines' Core Team</h1>
+      <hr class="featurette-divider">
+      <div class="row">
+        <div class="col-lg-4">
+          <!-- <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg"
+            aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" role="img" focusable="false">
+            <title>Placeholder</title>
+            <rect width="100%" height="100%" fill="#777" /><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text>
+          </svg> -->
+          <a href="../static/dev/amazing-grace.jpg"><img src="{% static './dev/amazing-grace.jpg' %}" alt="tchoumiDonald" class="img img-fluid rounded-pill bd-placeholder-img resize" width="250"></a>
+
+          <h2>Tchoumi Nzikeu Donald</h2>
+          <p>
+            Computer Science Student at the University of Dschang.
+          </p>
+          <p><a class="btn btn-primary" href="#" role="button">View Profile &raquo;</a></p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <!-- <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg"
+            aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" role="img" focusable="false">
+            <title>Placeholder</title>
+            <rect width="100%" height="100%" fill="#777" /><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text>
+          </svg> -->
+          <a href="../static/dev/IMG_20210616_142852_2.jpg"><img src="{% static './dev/IMG_20210616_142852_2.jpg' %}" alt="joelFah" class="img img-fluid rounded-pill bd-placeholder-img resize" width="250"></a>
+
+          <h2>Dejon Fah Joel Xavier</i></h2>
+          <p>
+            Computer Science Student at the University of Yaounde 1
+          </p>
+          <p><a class="btn btn-primary" href="{% url 'Developer' %}" role="button">View Profile &raquo;</a></p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <!-- <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg"
+            aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" role="img" focusable="false">
+            <title>Placeholder</title>
+            <rect width="100%" height="100%" fill="#777" /><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text>
+          </svg> -->
+          <a href="../static/dev/glorious.jpg"><img src="{% static './dev/glorious.jpg' %}" alt="limaCharles" class="img img-fluid rounded-pill bd-placeholder-img resize" width="250"></a>
+
+          <h2>Lima Charles</h2>
+          <p>
+            Computer Science Student.
+          </p>
+          <p><a class="btn btn-primary" href="#" role="button">View Profile &raquo;</a></p>
+        </div><!-- /.col-lg-4 -->
+      </div><!-- /.row -->
+
+
+      <!-- START THE FEATURETTES -->
+
+      <hr class="featurette-divider">
+
+      <h1 class="h1-me-left">What can The Genuines equip you with?</h1>
+
+      <div class="row featurette">
+        <div class="col-md-7">
+          <h2 class="featurette-heading">Computer Science Paper 1 & 2 Advanced Level <br><span class="text-muted">Theoretical
+              Sessions</span>
+          </h2>
+          <p class="lead">
+            This book is a special sequel to the G.C.E Advanced Level Computer Science.
+            The book has been written with special attention to all candidates willing
+            to understand the concepts in Advanced Level, with the belief being
+            “a constant solving of past examination papers drives the concept faster”.<br>
+            This book is divided into three main parts; the first part consists of past
+            GCE paper 1 questions from 2010 to 2019, the second part consist of past GCE
+            paper 2 questions from 2010 to 2019 and four additional regional mock exams
+            and the third part is composed of solutions to the preceding past GCE
+            questions which are clearly fleshed out demonstrated.<br>
+            The aim of this workbook is not for you to memorize solutions but to actually
+            understand the concept behind each problem. That is why I emphasized on the
+            terms “clearly fleshed out demonstrated solutions”. 
+          </p>
+        </div>
+        <div class="col-md-5">
+          <!-- <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
+            height="500" xmlns="http://www.w3.org/2000/svg" aria-label="Placeholder: 500x500"
+            preserveAspectRatio="xMidYMid slice" role="img" focusable="false">
+            <title>Placeholder</title>
+            <rect width="100%" height="100%" fill="#eee" /><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text>
+          </svg> -->
+          <a href="../static/dev/images/al-front-p1-p2.png"><img src="{% static './dev/images/al-front-p1-p2.png' %}" alt="CSC-AL-paper-3" class="img-thumbnail"></a>
+          <br>
+          <p><a class="btn btn-primary container-fluid" href="#" role="button">Place Order Now &raquo;</a></p>
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-7 order-md-2">
+          <h2 class="featurette-heading">Computer Science Paper 3 Advanced Level <br><span class="text-muted">Practical Sessions</span></h2>
+          <p class="lead">
+            This book is divided into three main parts; the first part consists of 
+            past GCE paper 3 questions from 2010 to 2020 together with sample and 
+            regional mock questions, the second part consists of proposed solutions 
+            to the preceding past GCE and past Mock questions which are clearly 
+            fleshed out demonstrated and the third part is composed of short, simple 
+            and summarized notes to accompany students during their study times.<br>
+            It is hoped that a meticulous examination of these questions (after 
+            treatment of each year session) would help candidates to secure the grades 
+            they desire and deserve. Candidates preparing for competitive entrance 
+            examinations that require knowledge of Computer Science shall also find 
+            this workbook very useful.
+          </p>
+        </div>
+        <div class="col-md-5 order-md-1">
+          <!-- <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
+            height="500" xmlns="http://www.w3.org/2000/svg" aria-label="Placeholder: 500x500"
+            preserveAspectRatio="xMidYMid slice" role="img" focusable="false">
+            <title>Placeholder</title>
+            <rect width="100%" height="100%" fill="#eee" /><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text>
+          </svg> -->
+          <a href="../static/dev/images/al-front-p3.png"><img src="{% static './dev/images/al-front-p3.png' %}" alt="CSC-AL-paper-1&2" class="img-thumbnail"></a>
+          <br>
+          <p><a class="btn btn-primary container-fluid" href="{% url 'Order' %}" role="button">Place Order Now &raquo;</a></p>
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-7">
+          <h2 class="featurette-heading">Computer Science Paper 1 & 2 Ordinary Level <br><span class="text-muted">Theoretical
+              Sessions</span>
+          </h2>
+          <p class="lead">
+            Soon available, computer science papers for the ordinary level students. <br>
+            We are working on it!
+          </p>
+        </div>
+        <div class="col-md-5">
+          <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
+            height="500" xmlns="http://www.w3.org/2000/svg" aria-label="Placeholder: 500x500"
+            preserveAspectRatio="xMidYMid slice" role="img" focusable="false">
+            <title>Placeholder</title>
+            <rect width="100%" height="100%" fill="#eee" /><text x="50%" y="50%" fill="#aaa" dy=".3em">Coming Soon!</text>
+          </svg>
+          <!-- <a href=""><img src="" alt="CSC-OL-paper-1&2" class="img-thumbnail"></a> -->
+          <br>
+          <p><a class="btn btn-secondary disabled container-fluid" href="#" role="button">Coming Soon...</a></p>
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-7 order-md-2">
+          <h2 class="featurette-heading">Computer Science Paper 3 Ordinary Level <br><span class="text-muted">Practical Sessions</span></h2>
+          <p class="lead">
+            Soon available, computer science papers for the ordinary level students. <br>
+            We are working on it!
+          </p>
+        </div>
+        <div class="col-md-5 order-md-1">
+          <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
+            height="500" xmlns="http://www.w3.org/2000/svg" aria-label="Placeholder: 500x500"
+            preserveAspectRatio="xMidYMid slice" role="img" focusable="false">
+            <title>Placeholder</title>
+            <rect width="100%" height="100%" fill="#eee" /><text x="50%" y="50%" fill="#aaa" dy=".3em">Coming Soon!</text>
+          </svg>
+          <br>
+          <p><a class="btn btn-secondary disabled container-fluid" href="#" role="button">Coming Soon...</a></p>
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <!-- /END THE FEATURETTES -->
+
+    </div><!-- /.container -->
+
+    
+    <!-- FOOTER -->
+    <footer class="container ">
+
+      <p class="float-right">|<a href="#">Back to top</a></p>
+      <p>&copy; 2020-2021 The Genuines corp. &middot; <a href="#">Find Us</a> &middot; <a href="#">Let's Chat</a> &middot;</p>
+
+      <div class="row mb-2 float-center">
+        <div class="col-md-6">
+          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+              <div class="col p-4 d-flex flex-column position-static">
+                  <h3 class="mb-0">Join Our News Letter</h3>
+                  <form action="">
+                    <div class="mb-1 flexbox">
+                      <div class="mb-1 col-md-10">
+                        <input type="email" name="email" id="" placeholder="Enter your email address..." class="form-control badge-pill badge-dark">
+                      </div>
+                      <div class="mb-1">
+                        <input type="submit" value="Join" class="form-control badge-pill btn-success sizeit">
+                      </div>
+                    </div>
+                  </form>
+                  <p class="card-text mb-auto">
+                    Register to our newsletter to get notifications about our 
+                    new pamphlets.
+                  </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+          <div class="row g-0 rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+              <div class="col p-4 d-flex flex-column position-static">
+                  <h3 class="mb-0">Direct Links</h3>
+                  <ul type="none" style="margin: 5px;">
+                    <li>
+                      <!-- Home -->
+                      <a style="color: #868686;" href="#!" role="button"><i class="fa fa-home fa-lg"></i></a>
+                      <a href="{% url 'Home' %}" style="color: #868686;">Home - The Genuines</a>
+                    </li>
+                    <li>
+                      <!-- Order -->
+                      <a style="color: #868686;" href="#!" role="button"><i class="fa fa-cart-plus fa-lg"></i></a>
+                      <a href="{% url 'Order' %}" style="color: #868686;">Place An Order</a>
+                    </li>
+                    <li>
+                      <!-- Contact -->
+                      <a style="color: #868686;" href="#!" role="button"><i class="fa fa-phone fa-lg"></i></a>
+                      <a href="#bottom" style="color: #868686;">Contact Us</a>
+                    </li>
+                  </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+          <div class="row g-0 rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+              <div class="col p-4 d-flex flex-column position-static">
+                  <h3 class="mb-0">Let's Socialize</h3>
+                  <p style="word-spacing: 7px; margin: 5px; font-size: x-large;">
+                    <!-- Facebook -->
+                    <a style="color: #3b5998;" href="https://www.facebook.com/fahjoel.fah/" role="button"><i class="fab fa-facebook-f fa-lg"></i></a>
+
+                    <!-- Telegram -->
+                    <a style="color: #0088cc;" href="https://t.me/JoelFah" role="button"><i class="fab fa-telegram fa-lg"></i></a>
+
+                    <!-- Google -->
+                    <a style="color: #dd4b39;" href="mailto:joelfah2003@gmail.com" role="button"><i class="fa fa-envelope fa-lg"></i></a>
+
+                    <!-- Whatsapp -->
+                    <a style="color: #075e54;" href="https://wa.me/237656997810" role="button"><i class="fab fa-whatsapp fa-lg"></i></a>
+                  </p>
+                </div>
+            </div>
+        </div>
+      </div>
+
+    </footer>
+  </main>
+
+
+
+</body>
+
+{% endblock body %}
